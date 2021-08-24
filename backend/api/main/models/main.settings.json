@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mains",
+  "info": {
+    "name": "main",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CV": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Rejected",
+        "Waiting",
+        "Accepted"
+      ],
+      "required": true,
+      "default": "Waiting"
+    }
+  }
+}

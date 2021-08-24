@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidates_s",
+  "info": {
+    "name": "Candidates",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "CV": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Rejected",
+        "Waiting",
+        "Accepted"
+      ],
+      "default": "Waiting",
+      "required": true
+    },
+    "offres": {
+      "via": "candidates",
+      "collection": "offre",
+      "dominant": true
+    }
+  }
+}

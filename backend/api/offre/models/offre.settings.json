@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offres",
+  "info": {
+    "name": "Offre",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "Study_level": {
+      "type": "string",
+      "required": true
+    },
+    "Experience": {
+      "type": "string",
+      "required": true
+    },
+    "Vacant_jobs": {
+      "type": "integer",
+      "required": true
+    },
+    "Expiration_date": {
+      "type": "date",
+      "required": true
+    },
+    "candidates": {
+      "via": "offres",
+      "collection": "candidates"
+    }
+  }
+}
